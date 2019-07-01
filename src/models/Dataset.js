@@ -12,6 +12,10 @@ const Dataset = new mongoose.Schema({
 	data: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Data"
+	}],
+	message: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Message"
 	}]
 }, {
 	timestamps: true
