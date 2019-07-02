@@ -51,7 +51,6 @@ $ yarn dev
 #### Executando em Docker
 Para executar o projeto utilizando Docker, builde a imagem:
 ```
-
 $ docker-compose build
 ```
 
@@ -82,23 +81,14 @@ $ docker-compose -d
 
 
 ## Desenvolvido com
-
-[Ferramentas e bibliotecas usadas para desenvolver o projeto]
-
+* NodeJS (Express, Mongoose)
+* MongoDB
+* Docker
 
 ## Contribuindo
 
-Por favor leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para mais detalhes sobre o nosso código de conduta e processo para submeter um *Pull Request*.
+Por favor leia [CONTRIBUTING](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para mais detalhes sobre o nosso código de conduta e processo para submeter um *Pull Request*.
 
-## Autores
-
-* [**Elisa Malzoni**](https://github.com/elisamalzoni)
-* [**Martim José**](https://github.com/martimfj)
-* [**Leonardo Medeiros**](https://github.com/Leostayner)
 
 ## Licença
 Esse projeto está licenciado sobre a licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
-
-## Agradecimentos
-
-* [**melihyarikkaya**](https://github.com/melihyarikkaya), por ter criado a biblioteca [*react-native-serialport*](https://github.com/melihyarikkaya/react-native-serialport) facilitando nosso trabalho.
