@@ -1,51 +1,104 @@
 # Backend
-This is a Node.js backend for Insper Mileage Application.
 
-## How to use
-- In the terminal, run:
-  - `yarn`, to install the dependencies.
-  - `node ./src/index.js`, to start the program.
+Código do backend para o [aplicativo](http://github.com) e [dashboard](http://github.com) do Insper Mileage.
 
-Or after installing the dependencies, you can run in development mode with: `yarn dev` (this will re-run the index.js at every file change, thanks to *nodemon*)
+*Link encurtado: [`https://git.io/0`](https://git.io/0)*
 
-## Routes
-#### Create dataset
+*Read this in [**English**](README.md) and [**Portuguese**](README.pt.md)*
+
+## Começando
+
+Essas instruções vão fazer com que você tenha uma cópia do projeto rodando em sua máquina local para desevolvimento e testes. 
+Veja o tópico de [*deployment*](#deployment) para ver como colocar o projeto em produção.
+
+### Pré-Requisitos
+
+Para executar o projeto, você precisa ter instalado em sua máquina: NodeJS e Yarn ou Docker, que criará um container com as dependências:
+
+#### NodeJS (v10.x.x)
 ```
-> POST /dataset HTTP/1.1
-> Host: localhost:3333
-> Content-Type: application/json
-
-| {
-| 	"title": "treino-pre-competicao"
-| }
-```
-
-#### List datasets
-```
-> GET /dataset HTTP/1.1
-> Host: localhost:3333
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ```
 
-#### Insert data
+#### Yarn (v1.16.0)
 ```
-> POST /dataset/<databaseID> HTTP/1.1
-> Host: localhost:3333
-> Content-Type: application/json
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-| {
-| 	"button": 1,
-| 	"accelerometer": 0.23,
-| 	"altimeter": 165.77,
-| 	"barometer": 100.08,
-| 	"temperature": 33.28,
-| 	"rpm": 199,
-| 	"voltage": 2.98,
-| 	"current": 0.31
-| }
+sudo apt-get update && sudo apt-get install yarn
 ```
 
-#### Show data from database
+#### Docker e Docker Compose
+Para facilitar a instalação em um sistema Ubuntu 18.04 - 18.10, execute o programa:
 ```
-> GET /dataset/<databaseID> HTTP/1.1
-> Host: localhost:3333
+./docker-install
 ```
+
+### Instalação e execução
+#### Executando na máquina local
+Para instalar as dependências do projeto e executá-lo:
+```
+$ yarn
+$ yarn start
+```
+
+Para executar em modo desenvolvedor, em que a cada modificação de arquivo o programa é reiniciado:
+```
+$ yarn dev
+```
+
+#### Executando em Docker
+Para executar o projeto utilizando Docker, builde a imagem:
+```
+
+$ docker-compose build
+```
+
+Para iniciar o container:
+```
+$ docker-compose -d
+```
+**obs:** Utilize a flag -d para executar em segundo plano.
+
+
+### Demonstração
+
+
+## Integridade do projeto
+
+### Testes
+
+[Quais são os testes e porque são importantes]
+
+### Executando os testes
+
+[Como executar testes automatizados do projeto]
+
+
+## Deployment
+
+[Como fazer o deploy do projeto para um ambiente de produção]
+
+
+## Desenvolvido com
+
+[Ferramentas e bibliotecas usadas para desenvolver o projeto]
+
+
+## Contribuindo
+
+Por favor leia [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) para mais detalhes sobre o nosso código de conduta e processo para submeter um *Pull Request*.
+
+## Autores
+
+* [**Elisa Malzoni**](https://github.com/elisamalzoni)
+* [**Martim José**](https://github.com/martimfj)
+* [**Leonardo Medeiros**](https://github.com/Leostayner)
+
+## Licença
+Esse projeto está licenciado sobre a licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
+
+## Agradecimentos
+
+* [**melihyarikkaya**](https://github.com/melihyarikkaya), por ter criado a biblioteca [*react-native-serialport*](https://github.com/melihyarikkaya/react-native-serialport) facilitando nosso trabalho.
