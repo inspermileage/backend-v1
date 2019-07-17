@@ -1,18 +1,32 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+require("dotenv").config()
 
-const PORT = 3333;
-const HOST = "0.0.0.0";
+const express = require("express")
+const bodyParser = require("body-parser")
+const mongoose = require("mongoose")
+const path = require("path")
+const cors = require("cors")
 
-const app = express();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+const app = express()
 
-mongoose.connect("mongodb+srv://martimfj:martimfjsenha@cluster0-uwgn5.mongodb.net/insper-mileage?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-});
+const server = require("http").Server(app)
+const io = require("socket.io")(server)
 
-app.use(require("./routes"));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-app.listen(PORT, HOST);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+})
+
+app.use((req, res, next) => {
+  req.io = io
+  next()
+})
+
+app.use(cors())
+
+app.use("/files", express.static(path.resolve(__dirname, "..", "datasets")))
+
+app.use(require("./routes"))
+
+server.listen(process.env.PORT | 3333)
