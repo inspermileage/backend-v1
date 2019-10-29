@@ -36,6 +36,12 @@ Para facilitar a instalação em um sistema Ubuntu 18.04 - 18.10, execute o prog
 ```
 
 ### Instalação e execução
+Crie um arquivo .env com o seguinte texto:
+```
+MONGO_URL=<URL_DO_BANCO_DE_DADOS_MONGO>
+PORT=3333
+```
+
 #### Executando na máquina local
 Para instalar as dependências do projeto e executá-lo:
 ```
@@ -56,7 +62,7 @@ $ docker-compose build
 
 Para iniciar o container:
 ```
-$ docker-compose -d
+$ docker-compose up -d
 ```
 **obs:** Utilize a flag -d para executar em segundo plano.
 
